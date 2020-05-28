@@ -26,16 +26,21 @@ echo "============================================="
   emmake make V=1
 
   # Compile librnnoise generated LLVM bytecode to wasm
+ #   ${OPTIMIZE} \
+#    -s MODULARIZE=1 \
+#    -s EXPORT_ES6=1 \
   emcc \
-    ${OPTIMIZE} \
+    --bind -O1 \
+    -s WASM=1 \
+    -s SINGLE_FILE=1 \
+    -s BINARYEN_ASYNC_COMPILATION=0 \
     -s STRICT=1 \
     -s ALLOW_MEMORY_GROWTH=1 \
     -s MALLOC=emmalloc \
-    -s MODULARIZE=1 \
-    -s EXPORT_ES6=1 \
     -s EXPORTED_FUNCTIONS="['_rnnoise_process_frame', '_rnnoise_init', '_rnnoise_destroy', '_rnnoise_create', '_malloc', '_free']" \
     .libs/librnnoise.so \
-    -o ./$ENTRY_POINT
+    -o ./$ENTRY_POINT \
+    --post-js /src/lib/em-es6-module.js 
 
   # Create output folder
   rm -rf ../dist
@@ -43,7 +48,7 @@ echo "============================================="
 
   # Move artifacts
   mv $ENTRY_POINT ../dist/index.js
-  mv rnnoise.wasm ../dist/
+#  mv rnnoise.wasm ../dist/
 
   # Clean cluttter
   git clean -f -d

@@ -1,5 +1,7 @@
 = lifeisze enhanced rnn_noise
 
+This repo contained some changes so it can works with audio worklet in chrome.
+
 == rnn-wasm.js.orig
 it is generated from origin rnn noise code/model without any changes.
 

@@ -1,0 +1,9 @@
+= lifeisze enhanced rnn_noise
+
+== rnn-wasm.js.orig
+it is generated from origin rnn noise code/model without any changes.
+
+== rnn-wasm.js.lifesize_trained
+replace rnn_data.c in the src, rebuild it
+
+

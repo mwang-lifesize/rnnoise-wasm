@@ -6,6 +6,7 @@ This repository contains the necessary utilities to build the library using a Do
 
 
 ## Build
+Need to compile on Linux (Debian or Ubuntu etc), there are some errors in MacOS.
 in the repo dir, do ( to pull the rnnoise)
 git submodule update --init --recursive
 

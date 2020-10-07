@@ -4,7 +4,10 @@
 
 This repository contains the necessary utilities to build the library using a Docker build environment with Emscripten.
 
+
 ## Build
+in the repo dir, do ( to pull the rnnoise)
+git submodule update --init --recursive
 
 ### Prerequisites
 
